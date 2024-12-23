@@ -1,0 +1,142 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f4f4f4;
+}
+
+/* Header */
+header {
+    background: #2e8b57;
+    color: #fff7f7;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #c0f0c0;
+}
+
+/* Hero Section */
+.hero {
+    background: url('Ham_further_expanded_landscape.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.hero-content p {
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.hero-content .btn-primary {
+    background: #fff;
+    color: #2e8b57;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.hero-content .btn-primary:hover {
+    background: #c0f0c0;
+}
+
+/* Section Styles */
+.section {
+    padding: 2rem;
+    text-align: center;
+    background: #fff;
+    margin: 1rem;
+    border-radius: 8px;
+}
+
+.service-container, .gallery-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.service {
+    background: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 30%;
+}
+
+/* Gallery Image Styling */
+.gallery-container img {
+    width: 30%;
+    border-radius: 8px;
+    object-fit: cover; /* Ensures images maintain aspect ratio */
+    height: 200px; /* Fixed height for placeholders */
+    background: #eaeaea; /* Light gray background for placeholders */
+    border: 1px solid #ccc;
+    display: block; /* Ensures images are block elements */
+}
+
+/* Contact Form */
+form input, form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background: #2e8b57;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #246b44;
+}
+
+/* Footer */
+footer {
+    background: #2e8b57;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
