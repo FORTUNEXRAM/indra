@@ -3,75 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoSpace Innovations</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="theme-toggle">
+        <input type="checkbox" id="themeSwitch" onchange="toggleTheme()">
+        <label for="themeSwitch">🌙</label>
+    </div>
+    <div class="calculator">
+        <input type="text" id="display" class="display" disabled>
+        <div class="buttons">
+            <!-- Number and Operator Buttons -->
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="operation('/')">/</button>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>EcoSpace Innovations</h1>
-            <p>Innovative solutions for sustainable outdoors</p>
-            <a href="#contact" class="btn-primary">Get Started</a>
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="operation('*')">*</button>
+
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button onclick="operation('-')">-</button>
+
+            <button onclick="appendValue('0')">0</button>
+            <button onclick="appendValue('.')">.</button>
+            <button onclick="clearDisplay()" class="special">C</button>
+            <button onclick="operation('+')">+</button>
+
+            <!-- Additional Functions -->
+            <button onclick="appendValue('Math.sin(')">sin</button>
+            <button onclick="appendValue('Math.cos(')">cos</button>
+            <button onclick="appendValue('Math.tan(')">tan</button>
+            <button onclick="appendValue('Math.log10(')">log</button>
+
+            <button onclick="appendValue('Math.sqrt(')">&radic;</button>
+            <button onclick="appendValue('Math.PI')">&pi;</button>
+            <button onclick="appendValue('Math.E')">e</button>
+            <button onclick="deleteLast()">DEL</button>
+
+            <!-- Adjusted Parentheses and Equals Button -->
+            <button onclick="appendValue('(')">(</button>
+            <button onclick="appendValue(')')">)</button>
+            <button onclick="calculate()" class="special equals">=</button>
         </div>
-    </section>
+    </div>
 
-    <section id="about" class="section">
-        <h2>About Us</h2>
-        <p>At EcoSpace Innovations, we specialize in creating sustainable outdoor spaces that harmonize with nature. With a commitment to innovative design and eco-friendly practices, we transform landscapes into vibrant and thriving environments.</p>
-    </section>
+    <script>
+        const display = document.getElementById('display');
+        const body = document.body;
 
-    <section id="services" class="section">
-        <h2>Our Services</h2>
-        <div class="service-container">
-            <div class="service">
-                <h3>Landscape Design</h3>
-                <p>Custom designs tailored to your space and vision.</p>
-            </div>
-            <div class="service">
-                <h3>Eco-friendly Maintenance</h3>
-                <p>Low-impact upkeep to keep your landscape beautiful year-round.</p>
-            </div>
-            <div class="service">
-                <h3>Hardscaping Solutions</h3>
-                <p>Paths, patios, and structures designed to last.</p>
-            </div>
-        </div>
-    </section>
+        function appendValue(value) {
+            display.value += value;
+        }
 
-    <section id="gallery" class="section">
-        <h2>Gallery</h2>
-        <div class="gallery-container">
-            <img src="pit1.jpg" alt="Gallery Image 1" onerror="this.src='https://via.placeholder.com/300x200?text=Image+1';">
-            <img src="pit2.jpg" alt="Gallery Image 2" onerror="this.src='https://via.placeholder.com/300x200?text=Image+2';">
-            <img src="pit3.jpg" alt="Gallery Image 3" onerror="this.src='https://via.placeholder.com/300x200?text=Image+3';">
-        </div>
-    </section>
+        function operation(op) {
+            const lastChar = display.value.slice(-1);
+            if ('+-*/'.includes(lastChar)) {
+                display.value = display.value.slice(0, -1) + op;
+            } else {
+                display.value += op;
+            }
+        }
 
-    <section id="contact" class="section">
-        <h2>Contact Us</h2>
-        <form action="https://example.com/submit" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn-primary">Send Message</button>
-        </form>
-    </section>
+        function clearDisplay() {
+            display.value = '';
+        }
 
-    <footer>
-        <p>&copy; 2024 EcoSpace Innovations. All rights reserved.</p>
-    </footer>
+        function deleteLast() {
+            display.value = display.value.slice(0, -1);
+        }
 
-    <script src="script.js"></script>
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = 'Error';
+            }
+        }
+
+        function toggleTheme() {
+            body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
+
+
+
+
